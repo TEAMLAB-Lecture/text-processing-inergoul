@@ -22,7 +22,7 @@ def normalize(input_string):
 
          Returns:
              normalized_string (string): 위 요건을 충족시킨 정규회된 string
-             ex - 'this is an example.'
+             ex - 'this is an example.', 'extra space'
 
          Examples:
              >>> import text_processing as tp
@@ -33,7 +33,16 @@ def normalize(input_string):
              >>> tp.normalize(input_string2)
              'extra space'
     """
-    normalized_string = None
+    word_list = input_string.split(' ')
+    # 원래 string을 ' '로 쪼개서 빈 공백이면 없애버림
+    normal_word_list = []
+    for word in word_list:
+        if word != '':
+            normal_word_list.append(word)
+    # 각 단어를 소문자로 바꿈
+    normal_word_list = list(map(lambda w: w.lower(), normal_word_list))
+    normalized_string = ' '.join(normal_word_list)
+
     return normalized_string
 
 
@@ -58,5 +67,10 @@ def no_vowels(input_string):
             >>> tp.normalize(input_string2)
             ''W lv Pythn!'
     """
-    no_vowel_string = None
+    no_vowel_string = input_string  # 인풋을 받아 답으로 변환될 변수
+    vowel_list = ['a','e','i','o','u','A','E','I','O','U'] # 모음 리스트
+    for v in vowel_list:
+        no_vowel_string = no_vowel_string.replace(v, '')
+    # 모음리스트에 있는 문자를 없애는 반복문
+
     return no_vowel_string
