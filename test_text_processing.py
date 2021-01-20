@@ -2,7 +2,7 @@
 
 import unittest
 import random
-import test_processing as tp
+import text_processing as tp
 
 
 class TestTextProcessing(unittest.TestCase):
@@ -91,3 +91,7 @@ class TestTextProcessing(unittest.TestCase):
         test_str = "abcdefghijklmnopqrstuvwxyz"
         pred = tp.no_vowels(test_str)
         self.assertEqual(pred, "bcdfghjklmnpqrstvwxyz")
+
+t1 = TestTextProcessing()
+t1.test_normalize()
+t1.test_no_vowels()
